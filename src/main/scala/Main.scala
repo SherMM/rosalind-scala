@@ -10,7 +10,11 @@ import Revc.{
   solveRevc
 }
 
+import GC.{
+  solveGC
+}
+
 object Main extends App {
   val filename = args(0)
-  solveRevc(filename)
+  solveGC(filename)
 }
