@@ -1,20 +1,12 @@
 import Dna.{
-  countNucleotides,
-  printNucleotideCounts
-}
-
-import Utils.{
-  readDnaStrandFromFile
+  solveDna
 }
 
 import Rna.{
-  transcribeDnaToRna
+  solveRna
 }
-
 
 object Main extends App {
   val filename = args(0)
-  val dna = readDnaStrandFromFile(filename)
-  val rna = transcribeDnaToRna(dna)
-  println(rna)
+  solveDna(filename)
 }
