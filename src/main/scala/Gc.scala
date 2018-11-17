@@ -2,7 +2,7 @@ import Utils.{
   readFastaAndStrandsFromFile
 }
 
-object GC {
+object Gc {
 
   def calculateGcContent(dna: String): Double = {
     (dna.filter(nuc => nuc == 'C' || nuc == 'G').size / dna.size.toFloat) * 100

@@ -8,6 +8,12 @@ object Utils {
     }
 
 
+    def readDnaStrandsFromFile(filename: String): (String, String) = {
+        val lines = Source.fromFile(filename).getLines.toList
+        (lines(0), lines(1))
+    }
+
+
     def readFastaAndStrandsFromFile(filename: String): Map[String, String] = {
         val lines = Source.fromFile(filename).getLines.toList
         processFastaStrands(lines, "", Map())
