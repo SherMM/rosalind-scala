@@ -18,7 +18,11 @@ import Hamm.{
   solveHamm
 }
 
+import Prot.{
+	solveProt
+}
+
 object Main extends App {
   val filename = args(0)
-  solveHamm(filename)
+  solveProt(filename)
 }
