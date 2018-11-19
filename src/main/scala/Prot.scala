@@ -22,14 +22,14 @@ object Prot {
 		"UGC" -> "C",    "CGC" -> "R", "AGC" -> "S", "GGC" -> "G",
 		"UGA" -> "Stop", "CGA" -> "R", "AGA" -> "R", "GGA" -> "G",
 		"UGG" -> "W",    "CGG" -> "R", "AGG" -> "R", "GGG" -> "G" 
-	) ->
+	)
 
 	def translateRnaToProtein(rna:String): String = {
-		rna.takeWhile(nuc => CodonTable.get(nuc).toString != "Stop").map(nuc => CodonTable.get(nuc)).mkString("")
+		rna.grouped(3).map(CodonTable.get(_)).flatten.takeWhile(prot => prot != "Stop").mkString
 	}
 
 
-	def solveProt(filename: String) {
+	def solveProt(filename: String): Unit = {
 		val rna = readDnaStrandFromFile(filename)
 		println(translateRnaToProtein(rna))
 	}
