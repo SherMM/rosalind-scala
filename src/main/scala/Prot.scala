@@ -25,7 +25,7 @@ object Prot {
 	)
 
 	def translateRnaToProtein(rna:String): String = {
-		rna.grouped(3).map(CodonTable.get(_)).flatten.takeWhile(prot => prot != "Stop").mkString
+		rna.grouped(3).map(CodonTable.get).flatten.takeWhile(prot => prot != "Stop").mkString
 	}
 
 
