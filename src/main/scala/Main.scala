@@ -22,7 +22,12 @@ import Prot.{
 	solveProt
 }
 
+
+import Subs.{
+  solveSubs
+}
+
 object Main extends App {
   val filename = args(0)
-  solveProt(filename)
+  solveSubs(filename)
 }
