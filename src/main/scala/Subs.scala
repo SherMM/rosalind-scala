@@ -6,7 +6,10 @@ import Utils.{
 object Subs {
 
   def findSharedMotifs(dna: String, sub: String): IndexedSeq[Int] = {
-    (0 to dna.size-sub.size).map(i => (i+1, dna.substring(i,i+sub.size))).filter(_._2 == sub).map(_._1)
+    (0 to dna.size-sub.size)
+      .map(i => (i+1, dna.substring(i,i+sub.size)))
+      .filter(_._2 == sub)
+      .map(_._1)
   }
 
 
