@@ -5,7 +5,7 @@ import Utils.{
 
 object Prot {
 
-	val CodonTable = Map(
+	private def CodonTable = Map(
 		"UUU" -> "F",    "CUU" -> "L", "AUU" -> "I", "GUU" -> "V",
 		"UUC" -> "F",    "CUC" -> "L", "AUC" -> "I", "GUC" -> "V",
 		"UUA" -> "L",    "CUA" -> "L", "AUA" -> "I", "GUA" -> "V",
