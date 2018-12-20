@@ -1,6 +1,4 @@
-import Utils.{
-	readDnaStrandFromFile
-}
+import Utils.readDnaStrandFromFile
 
 
 object Prot {
@@ -25,7 +23,7 @@ object Prot {
 	)
 
 	def translateRnaToProtein(rna:String): String = {
-		rna.grouped(3).map(CodonTable.get).flatten.takeWhile(prot => prot != "Stop").mkString
+		rna.grouped(3).flatMap(CodonTable.get).takeWhile(prot => prot != "Stop").mkString
 	}
 
 

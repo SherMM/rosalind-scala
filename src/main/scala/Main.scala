@@ -11,5 +11,5 @@ import Prtm.solvePrtm
 
 object Main extends App {
   val filename = args(0)
-  solvePrtm(filename)
+  solveProt(filename)
 }
