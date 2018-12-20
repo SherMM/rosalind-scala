@@ -6,9 +6,10 @@ import Hamm.solveHamm
 import Prot.solveProt
 import Subs.solveSubs
 import Cons.solveCons
+import Prtm.solvePrtm
 
 
 object Main extends App {
   val filename = args(0)
-  solveCons(filename)
+  solvePrtm(filename)
 }
