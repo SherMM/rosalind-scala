@@ -1,6 +1,4 @@
-import Utils.{
-  readFastaAndStrandsFromFile
-}
+import Utils.readFastaAndStrandsFromFile
 
 object Gc {
 

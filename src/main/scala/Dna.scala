@@ -1,6 +1,4 @@
-import Utils.{
-  readDnaStrandFromFile
-}
+import Utils.readDnaStrandFromFile
 
 object Dna {
 

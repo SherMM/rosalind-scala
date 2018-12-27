@@ -8,14 +8,14 @@ object Splc {
         if (introns.isEmpty) {
             dna
         } else {
-            val (intron, rest) = (introns.head, introns.tail)
+            val intron::rest = introns
             getSplicedProtein(dna.replace(intron, ""), rest) 
         }
     }
 
     def solveSplc(filename: String): Unit = {
         val strands = readFastaStrandsFromFile(filename).toList
-        val (dna, introns) = (strands.head, strands.tail)
+        val dna::introns = strands
         val spliced = getSplicedProtein(dna, introns)
         val rna = transcribeDnaToRna(spliced)
         println(translateRnaToProtein(rna))
