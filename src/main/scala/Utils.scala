@@ -16,21 +16,43 @@ object Utils {
 
     def readFastaAndStrandsFromFile(filename: String): Map[String, String] = {
         val lines = Source.fromFile(filename).getLines.toList
-        processFastaStrands(lines, "", Map())
+        processFastaAndStrands(lines, "", Map())
     }
 
 
-    def processFastaStrands(lines: List[String], code: String, strands: Map[String, String]): Map[String, String] = {
+    def processFastaAndStrands(lines: List[String], code: String, strands: Map[String, String]): Map[String, String] = {
         if (lines.isEmpty) {
             strands
         } else {
             val line::rest = lines
             if (line.startsWith(">")) {
                 val fasta = line.stripPrefix(">")
-                processFastaStrands(rest, fasta, strands + (fasta -> ""))
+                processFastaAndStrands(rest, fasta, strands + (fasta -> ""))
             } else {
-                processFastaStrands(rest, code, strands + (code -> strands(code).concat(line)))
+                processFastaAndStrands(rest, code, strands + (code -> strands(code).concat(line)))
             }
         }
     }
+
+
+    def readFastaStrandsFromFile(filename: String): Vector[String] = {
+        val lines = Source.fromFile(filename).getLines.toList
+        processFastaStrands(lines, -1, Vector())
+    }
+
+
+    def processFastaStrands(lines: List[String], index: Int, strands: Vector[String]): Vector[String] = {
+        if (lines.isEmpty) {
+            strands
+        } else {
+            val line::rest = lines
+            if (line.startsWith(">")) {
+                processFastaStrands(rest, index + 1, strands :+ "")
+            } else {
+                processFastaStrands(rest, index, strands.slice(0, index) :+ strands(index).concat(line))
+            }
+        }
+    }
+
+
 }
