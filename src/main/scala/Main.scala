@@ -12,5 +12,5 @@ import Splc.solveSplc
 
 object Main extends App {
   val filename = args(0)
-  solveSplc(filename)
+  solveDna(filename)
 }
