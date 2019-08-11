@@ -20,9 +20,19 @@ object Dna {
     count(dna.toList, 0, 0, 0, 0)
   }
 
+  def countNucleotidesMap(dna: String): Map[Char, Int] = {
+    def count(dna: List[Char], counts: Map[Char, Int]): Map[Char, Int] = {
+      dna match {
+        case Nil => counts
+        case head::tail => count(tail, counts + (head -> (counts.getOrElse(head, 0) + 1)))
+      }
+    }
+    count(dna.toList, Map[Char, Int]())
+  }
+
   def solveDna(filename: String): Unit = {
     val dna = readDnaStrandFromFile(filename)
-    val counts = countNucleotidesRec(dna)
+    val counts = countNucleotidesMap(dna)
     println(counts)
   }
 
